@@ -1,6 +1,6 @@
 const { User, Thought } = require("../models");
 
-const getUsers = async (req, res) => {
+const getUser = async (req, res) => {
   try {
     const dbUserData = await User.find().select("-__v");
     res.json(dbUserData);
@@ -10,7 +10,7 @@ const getUsers = async (req, res) => {
   }
 };
 
-const getSingleUser = async (req, res) => {
+const getOneUser = async (req, res) => {
   try {
     const dbUserData = await User.findOne({ _id: req.params.userId })
       .select("-__v")
