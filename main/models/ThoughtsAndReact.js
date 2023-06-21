@@ -1,5 +1,5 @@
 const {Schema, model, Types} = require ('mongoose');
-
+const dateFormat = require('../utils/dateFormat')
 
 const thoughtSchema = new Schema(
   {
@@ -12,7 +12,7 @@ const thoughtSchema = new Schema(
     createdOn: {
       type: Date,
       default: Date.now,
-      get: (timestamp) => timestamp.toLocaleString(),
+      get: (timestamp) => dateFormat(timestamp)
     },
     username: {
       type: String,
